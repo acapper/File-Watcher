@@ -1,6 +1,6 @@
 #!/bin/bash
 
-arr=("odp" "pptx")
+exts=("odp" "pptx")
 log="presentation.log"
 old=""
 hide="false"
@@ -40,7 +40,7 @@ done
 
 inotifywait -m -e moved_to --format %f ~/Test | while read FILE
 do
-	if [[ " ${arr[*]} " == *${FILE##*.}* ]]; then
+	if [[ " ${exts[*]} " == *${FILE##*.}* ]]; then
 		log "[Valid] Valid extension"
 		log "[New] New presentation: {$FILE}"
 		log "[Kill] Kill old presentation: {$old}"
