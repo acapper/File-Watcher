@@ -38,7 +38,7 @@ while getopts "h" flag; do
 	esac
 done
 
-inotifywait -m -e moved_to --format %f ~/Test | while read FILE
+inotifywait -m -e moved_to --format %f . | while read FILE
 do
 	if [[ " ${exts[*]} " == *${FILE##*.}* ]]; then
 		log "[Valid] Valid extension"
